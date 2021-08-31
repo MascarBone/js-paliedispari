@@ -1,9 +1,6 @@
 let bottonePalindroma = document.getElementById('btn-palindroma');
 let bottonePalindromaSimple = document.getElementById('btn-palindroma-simple');
 
-let testo = "anna";
-
-testo.split("").reverse().join();
 bottonePalindroma.addEventListener('click',controllo);
 
 bottonePalindromaSimple.addEventListener('click',controlloSimple);
@@ -68,10 +65,10 @@ function palindromaSimple (str)
     let risultato = false;
     let temp = str.split('').reverse().join('');
 
-    console.log("temp " + temp + typeof(temp));
-    console.log("str " + str + typeof(str));
+    console.log("temp " + temp + " " +typeof(temp));
+    console.log("str " + str + " " + typeof(str));
 
-    if (str == temp );
+    if (str == temp);
     {
         risultato = true;
     }
@@ -103,39 +100,38 @@ function scriviPalindroma (bool, str)
 
 // #################################################
 
-// let odd = prompt ("Scegli 'pari' o 'dispari'");
-// let input = parseInt(prompt ("Inserisci un numero"));
+let odd = prompt ("Scegli 'pari' o 'dispari'");
+let input = parseInt(prompt ("Inserisci un numero"));
 
-// let somma = input + genRandom5();
+let somma = input + genRandom5();
 
-// console.log(somma);
+console.log(somma);
 
-// let vittoria = confronta(somma);
+let vittoria = confronta(somma);
 
-// console.log (vittoria);
+console.log (vittoria);
 
-// if (vittoria == odd)
-// {
-//     console.log("Hai vinto");
-// }
-// else
-// {
-//     console.log("Hai perso");
-// }
+if (vittoria == odd)
+{
+    console.log("Hai vinto");
+}
+else
+{
+    console.log("Hai perso");
+}
 
+function genRandom5 ()
+{
+    return Math.floor(Math.random() * 5) + 1;
+}
 
-// function genRandom5 ()
-// {
-//     return Math.floor(Math.random() * 5) + 1;
-// }
-
-// function confronta (num)
-// {
-//     if (num % 2 == 0)
-//     {
-//         return 'pari';
-//     }else
-//     {
-//         return 'dispari';
-//     }
-// }
+function confronta (num)
+{
+    if (num % 2 == 0)
+    {
+        return 'pari';
+    }else
+    {
+        return 'dispari';
+    }
+}
