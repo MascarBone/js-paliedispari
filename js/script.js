@@ -1,95 +1,97 @@
-// let bottonePalindroma = document.getElementById('btn-palindroma');
-// // let inputPalindroma = document.getElementById('text-palindroma');
+let bottonePalindroma = document.getElementById('btn-palindroma');
+let bottonePalindromaSimple = document.getElementById('btn-palindroma-simple');
 
-// // console.log(inputPalindroma);
+let testo = "anna";
 
-// bottonePalindroma.addEventListener('click',palindroma(document.getElementById('text-palindroma').value));
+testo.split("").reverse().join();
+bottonePalindroma.addEventListener('click',controllo);
 
-// // let output = palindroma("annnnnnnnna");
+bottonePalindromaSimple.addEventListener('click',controlloSimple);
 
-// // console.log(output);
+// Le seguenti 2 funzioni servono per controllare se la parola inserita nel tag input
+// sia palindroma oppure no
+// Queste a seguire sono la prima versione
+
+function controllo()
+{
+    let inputPalindroma = document.getElementById('text-palindroma');
+    console.log (inputPalindroma);
+
+    let verifica = palindroma (inputPalindroma.value);
+
+    scriviPalindroma (verifica,'');
+}
+
+function palindroma (str)
+{
+    let risultato = false;
+
+    let iterazioni = Math.floor(str.length/2);
+    console.log (iterazioni);
+
+    for (let i = 0; i < iterazioni; i++)
+    {
+        if (str[i] == str[str.length-(i+1)])
+        {
+            console.log(i + " ciclo true ")
+            risultato = true;
+        }
+        else
+        {
+            console.log(i + " ciclo false ")
+            risultato = false;
+            break;
+        }
+    }
+    
+    return risultato;
+}
+
+////////////////////////////////////////////////////////////
+
+// Le seguenti 2 funzioni sono un'altra versione di quelle proposte sopra
+// Creando una stringa uguale ma ribaltata e controllata con se stessa
 
 
-// function palindroma (str)
-// {
-//     let risultato = false;
+function controlloSimple()
+{
+    let inputPalindroma = document.getElementById('text-palindroma-simple');
+    console.log (inputPalindroma);
 
-//     let iterazioni = Math.floor(str.length/2);
-//     console.log (iterazioni);
+    let verifica = palindromaSimple (inputPalindroma.value);
 
-//     for (let i = 0; i < iterazioni; i++)
-//     {
-//         if (str[i] == str[str.length-(i+1)])
-//         {
-//             console.log(i + " ciclo true ")
-//             risultato = true
-//         }
-//         else
-//         {
-//             console.log(i + " ciclo false ")
-//             risultato = false;
-//             break;
-//         }
-//     }
+    scriviPalindroma (verifica, '-simple');
+}
 
-//     if(risultato)
-//     {
-//         document.getElementById('show-palindroma').className = "";
-//         document.getElementById('show-palindroma').innerHTML = "La parola inserita &egrave; palindroma";
-//     }
-//     else
-//     {
-//         document.getElementById('show-palindroma').className = "";
-//         document.getElementById('show-palindroma').innerHTML = "La parola inserita non &egrave; palindroma";
-//     }
-// }
+function palindromaSimple (str)
+{
+    let risultato = false;
+    let temp = str.split('').reverse().join('');
 
-// #######################################################
+    console.log("temp " + temp + typeof(temp));
+    console.log("str " + str + typeof(str));
 
-// let parola = prompt("Inserisci una parola");
+    if (str == temp );
+    {
+        risultato = true;
+    }
+    console.log (risultato);
+    return risultato;
+}
 
-// let verifica = false;
-
-// verifica = palindroma(parola);
-
-// console.log(verifica);
-
-// if (verifica)
-// {
-//     // document.getElementById('show-palindroma').className = "";
-//     // document.getElementById('show-palindroma').innerHTML = "La parola inserita &egrave; palindroma";
-//     console.log("la parola inserita è palindroma");
-// }
-// else
-// {
-//     // document.getElementById('show-palindroma').className = "";
-//     // document.getElementById('show-palindroma').innerHTML = "La parola inserita non &egrave; palindroma";
-//     console.log("la parola inserita non è palindroma");
-// }
-
-// function palindroma (str)
-// {
-//     let risultato = false;
-
-//     let iterazioni = Math.floor(str.length/2);
-//     console.log (iterazioni);
-
-//     for (let i = 0; i < iterazioni; i++)
-//     {
-//         if (str[i] == str[str.length-(i+1)])
-//         {
-//             console.log(i + " ciclo true ")
-//             risultato = true
-//         }
-//         else
-//         {
-//             console.log(i + " ciclo false ")
-//             return false
-//         }
-//     }
-
-//     return risultato;
-// }
+function scriviPalindroma (bool, str)
+{
+    if(bool)
+    {
+        document.getElementById('show-palindroma' + str).className = "";
+        document.getElementById('show-palindroma' + str).innerHTML = "La parola inserita &egrave; palindroma";
+    }
+    else
+    {
+        document.getElementById('show-palindroma' + str).className = "";
+        document.getElementById('show-palindroma' + str).innerHTML = "La parola inserita non &egrave; palindroma";
+    }
+}
 
 
 
@@ -136,4 +138,4 @@
 //     {
 //         return 'dispari';
 //     }
-}
+// }
