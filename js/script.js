@@ -65,14 +65,11 @@ function palindromaSimple (str)
     let risultato = false;
     let temp = str.split('').reverse().join('');
 
-    console.log("temp " + temp + " " +typeof(temp));
-    console.log("str " + str + " " + typeof(str));
-
-    if (str == temp);
+    if (str == temp)
     {
         risultato = true;
     }
-    console.log (risultato);
+    
     return risultato;
 }
 
